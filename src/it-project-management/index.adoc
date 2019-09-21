@@ -1,0 +1,69 @@
+= IT Project Management
+:relative-ext: .adoc
+
+== Synopsis
+
+IT Project Management is the discipline that applies management principles
+to the development of information system projects. It uses techniques
+developed by Industrial Engineers and used by other engineers and business
+managers to bring in projects within time and budget. This course supplements
+Software Engineering by focusing on the management aspects of investing in
+the development of information systems.
+
+== Textbooks
+
+* Project Management with CompTIA Project+ Joseph Phillips, Fourth Edition,
+McGraw Hill, 2017
+
+== Major Topics
+
+* The Project Management Life Cycle, the Work Cycle, and the Business Context
+
+* Planning the Work and Working the Plan
+
+* Project Charter and the Business Case
+
+* Work Breakdown Structures (WBS), Networks and GANTT Charts
+
+* Status Reporting
+
+* The Management Part of Project Management
+
+== Objectives/Outcomes
+
+After studying this course, a student should be able to:
+
+* Build & execute advanced IT project plans
+
+* Apply the Project Management Life Cycle and create required project documents
+
+* Know critical success factors for IT projects and understand how to apply
+and manage them
+
+* Manage all phases of an IT project, and evaluate its level of
+successful execution
+
+* Know and apply the "hard" & "soft" skills as a project manager to
+lead IT projects
+
+== Course Outline
+
+. link:01-intro-and-pmlc{relative-ext}[Intro and PMLC]
+. link:02-concept-phase{relative-ext}[Concept Phase]
+. Developing the Project Plan
+. Project Charter
+. Work Breakdown Structures (WBS)
+. Network Charts
+. GANTT Charts
+. Cost Estimates
+. Status Reporting & Communication
+. Project Completion & Closeout
+. Putting it all together
+. Advanced Topics
+
+== Deliverable Format Header
+
+- Project #
+- Project Name
+- Editor(s)
+- Contributors

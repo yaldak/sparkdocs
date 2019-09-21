@@ -1,0 +1,671 @@
+= Collections
+Yalda Kako <yalda@kako.cc>
+:imagesdir: ./05-collections.assets
+:imagesoutdir: ./05-collections.assets
+:source-highlighter: coderay
+:source-linenums-option:
+:toc: left
+
+<<<
+
+== Java Collections Framework
+
+* A *collection* represents a group of objects, known as its elements
+* Some collections allow duplicate elements and others do not
+* Some are ordered and others unordered
+* At the root of the hierarchy is the `Collection` interface
+ ** It has methods for adding and removing elements
+ ** Extends the generic `Iterable&lt;E&gt;` interface
+ ** Lives in the `java.util` package
+
+<<<
+
+=== Hierarchy
+
+==== `Iterable`
+
+[plantuml, collections-iterable-hierarcy.generated, svg, align="center"]
+----
+@startuml
+interface Collection<E>
+interface Deque<E>
+interface Iterable<E>
+interface List<E>
+interface NavigableSet<E>
+interface Queue<E>
+interface Set<E>
+interface SortedSet<E>
+
+abstract class AbstractList<E>
+abstract class AbstractQueue<E>
+abstract class AbstractSequentialList<E>
+abstract class AbstractSet<E>
+
+class ArrayList<E>
+class HashSet<E>
+class LinkedHashSet<E>
+class LinkedList<E>
+class PriorityQueue<E>
+class TreeSet<E>
+class Vector<E>
+
+Iterable <|-- Collection
+Collection <|-- Set
+Collection <|-- List
+Collection <|-- Queue
+
+Set <|.. AbstractSet
+Set <|-- SortedSet
+AbstractSet <|-- HashSet
+HashSet <|-- LinkedHashSet
+SortedSet <|-- NavigableSet
+NavigableSet <|-- TreeSet
+
+Queue <|.. AbstractQueue
+Queue <|-- Deque
+AbstractQueue <|-- PriorityQueue
+Deque <|.. AbstractSequentialList
+
+List <|.. AbstractList
+AbstractList <|-- AbstractSequentialList
+AbstractList <|-- ArrayList
+AbstractList <|-- Vector
+AbstractSequentialList <|-- LinkedList
+
+@enduml
+----
+
+==== `Map`
+
+[plantuml, collections-map-hierarcy.generated, svg, align="center"]
+----
+@startuml
+interface Map<K, V>
+interface NavigableMap<K, V>
+interface SortedMap<K, V>
+
+abstract class AbstractMap<K, V>
+
+class HashMap<K, V>
+class LinkedHashMap<K, V>
+class TreeMap<K, V>
+
+Map <|.. AbstractMap
+Map <|-- SortedMap
+AbstractMap <|-- HashMap
+HashMap <|-- LinkedHashMap
+SortedMap <|-- NavigableMap
+NavigableMap <|.. TreeMap
+
+@enduml
+----
+
+== Collection Types
+
+* `List`
+** A collection that remembers the order of its elements
+** Implementations: `LinkedList`, `ArrayList`, `Vector`
+
+* `Set`
+** A collection without intrinsic order
+** Does not permit duplicates
+** Can arrange elements in a way to speed up finding/adding/removing them
+** Implementations: `TreeSet`, `HashSet`, `LinkedHashSet`
+
+* `Stack`
+** A collection that remembers the order of its elements, BUT:
+*** Does not allow insertion of elements in every position
+** Can add and remove elements only at the top
+
+* `Queue`
+** A collection that adds items to one end (the tail) and removes them from the other (the head)
+
+* `Map`
+** Manages association between keys and values
+** Every key in the map has an associated value
+** Implementations: `HashMap`, `TreeMap`, `LinkedHashMap`
+
+== Iterators
+
+* Used for iterating (looping) over various collection classes
+* `Iterator` took the place of `Enumeration` in the Java Collections Framework
+* Iterators differ from enumerations in two ways:
+ ** Iterators allow the caller to remove elements from the underlying collection during the iteration with well-defined semantics
+ ** Method names have been improved
+
+== Java Cursors
+
+* A Java Cursor is an iterator, which is used to iterate, traverse, or retrieve a `Collection` or `Stream` object's elements one-by-one
+
+|===
+| Interface | Java Version Introduced
+
+| `Enumeration`
+| 1.0
+
+| `Iterator`
+| 1.2
+
+| `ListIterator`
+| 1.2
+
+| `Spliterator`
+| 1.8
+|===
+
+=== `Enumeration`
+
+* Available since Java 1.0 and legacy interface
+* Has many limitations and not advisable to use in new code base or projects
+* Useful only for Collection Legacy classes
+* Compared to other cursors, has rather lengthy method names
+ ** e.g. `hasMoreElements()` and `nextElement()`
+* In CRUD, supports only READ
+ ** Does not support CREATE, UPDATE, and DELETE
+* Supports only Forward Direction iteration
+ ** That is why it is also known as Uni-Directional Cursor
+
+=== `Iterator`
+
+* Available in the Collection framework in `java.util` package
+* Used to iterate a collection of objects
+ ** Traverses a collection object elements one by one (forward)
+* Every collection has an `iterator()` method that allows you to create an `Iterator` for an object of that type
+* Available since Java 1.2 Collection Framework
+* Applicable to all Collection classes
+ ** So it is known as Universal Java Cursor
+* Supports READ and REMOVE operations
+* Compared to `Enumeration`, `Iterator` names are simple and easy to use
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Iterator.html[Javadoc]
+
+==== `Usage`
+
+[source,java]
+----
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        ArrayList<String> al = new ArrayList<>();
+        al.add("George");
+        al.add("Andy");
+        al.add("Maria");
+        al.add("Ann");
+
+        Iterator<String> it = al.iterator();
+        while (it.hasNext()) {
+            String s = it.next();
+            System.out.println(s);
+        }
+    }
+}
+----
+
+== for-each Loops and Iterators
+
+* A for-each loop uses an iterator "under the hood"
+* For collections, the for-each loop and iterator syntax are equivalent
+* You cannot remove items from a collection using a for-each loop
+ ** Attempting to do so yields a `ConcurrentModificationException`
+ ** Using the iterator syntax gives you the ability to reference the iterator, thus allowing you to remove items from your collection
+* for-each and iterators have better performance when you are working with any collection that does not implement `RandomAccess`
+ ** This is because structures that do not allow for random access must traverse the collection and the iterator keeps track of the state
+ ** Consider the Streams API as an alternative
+* The for-loop is equal in performance when iterating over collections that implement `RandomAccess`
+ ** `ArrayList`, `Vector`, `Stack`
+
+[source,java]
+----
+import java.util.ArrayList;
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        ArrayList<String> al = new ArrayList<>();
+        al.add("George");
+        al.add("Andy");
+        al.add("Maria");
+        al.add("Ann");
+
+        for (String s : al) {
+            System.out.println(s);
+        }
+    }
+}
+----
+
+You can also use a regular for-loop:
+
+[source,java]
+----
+import java.util.ArrayList;
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        ArrayList<String> al = new ArrayList<>();
+        al.add("George");
+        al.add("Andy");
+        al.add("Maria");
+        al.add("Ann");
+
+        for (int i = 0; i < a1.size(); i++) {
+            String s = al.get(i);
+            System.out.println(s);
+        }
+    }
+}
+----
+
+== Linked Lists
+
+* A data structure used for collecting a sequence of objects that allows efficient addition and removal of elements in the middle of the sequences
+* Uses a sequence of nodes
+ ** A node is an object that stores an element and references to neighboring nodes in the sequence
+* When inserting a new node into a linked list, only the neighboring node references need to be updated
+ ** The same is true when you remove a node
+* `LinkedList` in Java implements a *doubly-linked list*
+ ** It can return a `ListIterator` using `.listIterator()`
+
+=== Examples
+
+[source,java]
+----
+// Initialize an empty list
+LinkedList<String> list = new LinkedList<>(); // = new LinkedList<String>();
+
+// Adds an element to the end of the list -- same as add()
+list.addLast("Karl"); // List is now ["Karl"]
+
+// Adds an element to the beginning of the list
+list.addFirst("Danny") // List is now ["Danny", "Karl"]
+
+// Gets the element stored at the beginning of the list
+list.getFirst(); // Returns "Danny"
+
+// Gets the element stored at the end of the list
+list.getLast(); // Returns "Karl"
+
+// Removes the first element of the list and returns it
+// Similarly, can use removeLast() to remove the last element
+String removed = list.removeFirst(); // Returns "Danny"; list is now ["Karl"]
+
+// Provides an iterator for visiting all list elements
+ListIterator<String> iter = list.listIterator();
+----
+
+== `ListIterator`
+
+* `Iterator` can traverse the elements in the collection only in a forward direction
+* `ListIterator` can traverse the elements both forward and backward
+* Only applicable for `List` collection implemented classes
+ ** Such as `ArrayList`, `LinkedList`
+* Be careful when calling `remove()`
+ ** It can be called only _once_ after calling `next()` or `previous()`
+ ** Cannot call it immediately after a call to `add()`
+ ** If called improperly, throws an `IllegalStateException`
+
+=== Examples
+
+[source,java]
+----
+// Assume that iter points to the beginning of ["Karl"] before calling next()
+String s = iter.next(); // s = "Karl" and the iterator now points to the end
+
+// The set() method updates the last element returned by next() or previous()
+iter.previous(); // Returns "Karl"
+iter.set("Danny"); // The list is now ["Danny"]
+
+// Returns false because the iterator is at the end of the collection
+iter.hasNext();
+
+// hasPrevious() will return true, becuase the iterator is not at the beginning
+if (iter.hasPrevious()) {
+  // previous() and hasPrevious() are ListIterator methods
+  s = iter.previous();
+}
+
+// Adds an element before the iterator position (ListIterator only)
+iter.add("Dhruv"); // The list is now ["Dhruv", "Danny"]
+
+// remove() removes the last element returned by next() or previous()
+iter.next();
+iter.remove(); // The list is now ["Dhruv"]
+----
+
+== `ArrayList`
+
+* Initialized by a size, however, the size can increase or shrink as elements are added or removed to the collection
+* Implements `RandomAccess`, therefore can access elements randomly
+* Performance on `add()` and `remove()` is worse than `LinkedList`
+ ** But better on `get()` and `set()`
+* `ArrayList` is a better choice if your program is thread-safe
+* Requires space as more elements are added
+ ** Grows 50% of its size each time
+ ** Initial capacity is small by default
+ ** Good habit to construct with a higher initial capacity
+  *** This can avoid the resizing cost
+
+== List Algorithms
+
+* Most polymorphic algorithms in the `Collections` class apply specifically to `List`
+ ** Having these at hand makes it easy to manipulate lists
+
+=== Methods
+
+* `sort()`
+ ** sorts a List using a merge sort algorithm, which provides a fast, stable sort
+ ** a *stable sort* is one that does not reorder equal elements
+* `shuffle()`
+ ** randomly permutes the elements in a List
+* `reverse()`
+ ** reverses the order of the elements in a List
+* `rotate()`
+ ** rotates all the elements in a List by a specified distance
+* `swap()`
+ ** swaps the elements at specified positions in a List
+* `replaceAll()`
+ ** replaces all occurrences of one specified value with another
+* `fill()`
+ ** overwrites every element in a List with the specified value
+* `copy()`
+ ** copies the source List into the destination List
+* `binarySearch()`
+ ** searches for an element in an ordered List using the binary search algorithm
+* `indexOfSubList()`
+ ** returns the index of the first sublist of one List that is equal to another
+* `lastIndexOfSubList()`
+ ** returns the index of the last sublist of one List that is equal to another
+
+== Sets
+
+* Sets do not permit duplicates
+* If you add an element to a set that is already present, the insertion is ignored
+* `HashSet`
+ ** Need to provide `equals()` and `hashCode()` methods for elements to be in a `HashSet`
+* `TreeSet`
+ ** Must be possible to compare the eelements and determine which one is "larger"
+ ** Uses classes that implement the `Comparable` interface
+* Choose a `TreeSet` if you want to visit the set's elements in sorted order
+ ** `HashSet` is slightly more efficient as long as the hash function is well chosen
+* Both implementations arrange the set elements so that finding, adding, and removing elements is fast, but they use different strategies
+ ** `HashSet`: Set elements are grouped into smaller collections of elements that share the same characteristic.
+  *** integer values (called hash codes) that can be computed from the elements.
+
+=== Pitfalls
+
+[source,java]
+----
+import java.util.HashSet;
+
+public class HashSetDemo
+{
+    public static void main(String[] args) {
+        // Notice use of Set as the declared type
+        // Polymorphism - easy change if we want TreeSet instead
+        Set<String> hashset = new HashSet<>();
+        hashset.add("First");
+        hashset.add("Second");
+        hashset.add("Third");
+
+        Iterator<String> itr = hashset.iterator();
+        while (itr.hasNext()) {
+            itr.next();
+            // XXX: Will throw ConcurrentModificationException
+            // Cannot remove from the actual set, becuase the iterator is not updated
+            // Use itr.remove()
+// Iterator updates the state when removing, but you cannot do removes sequentially (two removes then a next) in a loop
+            hashset.remove("Second");
+        }
+    }
+}
+----
+
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html
+
+== Maps
+
+* Allows you to associate elements from a key set with elements from a value collection
+* You can use a map when you want to look up objects using a key
+* `HashMap`: implemented as a hash table, and there is no ordering on keys or values
+* `TreeMap`: implemented based on a red-black tree structure and is ordered by key
+ ** A *red-black tree* is a kind of self-balancing binary search tree
+ ** Each node of the binary tree has an extra bit
+  *** That bit is often interpreted as the color of the node (red or black)
+  *** The bits are used to ensure the tree remains approximately balanced during insertions and deletions
+* `LinkedHashMap`: preserves the insertion order
+* `Hashtable`: synchronized (in contrast to `HashMap`)
+ ** Used in unsafe-thread scenarios
+
+=== `HashMap` Usage
+
+[source,java]
+----
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "Jewel");
+map.put(2, "Whole Foods");
+map.put(3, "Kroger");
+
+// Using for-each with the key set
+for (Integer key: map.keySet()) {
+  System.out.println(key + " " + map.get(key));
+}
+
+// Using iterator with the key set
+Set<Integer> keys = map.keySet();
+Iterator<Integer> it = keys.iterator();
+while (it.hasNext()) {
+    Integer key = it.next();
+  System.out.println(key + " " + map.get(key));
+}
+
+// Using for-each with the Entry set (key, value pair)
+Set<Map.Entry<Integer, String>> set = map.entrySet();
+for (Entry entry: set) {
+    System.out.println(entry.getKey() + " " + entry.getValue());
+}
+
+// Using iterator with the Entry set (key, value pair)
+Set<Map.Entry<Integer, String>> set = map.entrySet();
+Iterator<Entry<Integer, String>> it = set.iterator();
+while (it.hasNext()) {
+    Entry entry = it.next();
+    System.out.println(entry.getKey() + " " + entry.getValue());
+}
+----
+
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html[Javadoc]
+
+== Hash Functions
+
+* A hash function computes an integer value, the *hash code* from an object
+ ** In such a way that different objects are likely to yield different hash codes
+* Because hash code is so important, the `Object` class has a hashCode method
+ ** `Object.hashCode()` computes a hash code from the _memory location_ of the object
+* If you put objects of a given class into a `HashSet`, or use objects as keys in a `HashMap`, the class should override this method
+* The method should be implemented so that different objects are likely to have different hash codes
+* *The `equals()` and `hashCode()` methods must be compatible with eachother*
+ ** Two objects that are equal must yield the same hash code
+* Can get into trouble if your class declares an `equals()` method but not a `hashCode()` method
+
+Suppose the Country class declares an equals method (checking that the name and area are the same),
+but no hashCode method. Then the hashCode method is inherited from the Object superclass.
+
+That method computes a hash code from the memory location of the object.
+Then it is highly likely that two objects with the same contents will have different hash codes,
+in which case a hash set will store them as two distinct objects.
+
+=== `String.hashCode()`
+
+[source,java]
+----
+final int HASH_MULTIPLIER = 31;
+int h = 0;
+
+for (int i = 0; i < s.length(); i++) {
+    h = HASH_MULTIPLIER * h + s.charAt(i);
+}
+----
+
+|===
+| String | Hash Code
+
+| "eat"
+| 100184
+
+| "tea"
+| 114704
+
+| "Juliet"
+| -2065036585
+
+| "Ugh"
+| 84982
+
+| "VII"
+| 84982
+|===
+
+* Note that "Ugh" and "VII" have the same hash code.
+
+=== Creating a `hashCode()` method
+
+* For your own classes, you should make up a hash code that combines the hash codes of the
+instance variables in a similar way to `String.hashCode()`.
+* To compute the hash code of a floating-point number, first wrap the floating-point number
+into a Double object, and then compute its hash code
+
+== Stacks
+
+* A `Stack` lets you insert and remove elements only at one end
+ ** The end is traditionally called the "top" of the stack
+* New items can be added to the top of the stack (*push*)
+* Items are removed from the top of the stack (*pop*)
+ ** They are removed in LIFO order (last-in, first out)
+ ** That is, the order that is opposite from wihch they were added
+* Examples
+ ** The undo feature of a word processor
+  *** When you select "Undo", the last command is undone
+ ** A run-time stack that a processor or VM keeps to store the values of variables in nested methods
+  *** Whenever a new method is called, its parameter variables and local variables are pushed onto a stack
+  *** When the method exists, they are popped off again
+* `Stack` has an iterator because it implements `Vector`
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html[Javadoc]
+
+=== Usage
+
+[source,java]
+----
+Stack<String> s = new Stack<String>();
+s.push("A");
+s.push("B");
+s.push("C");
+while (s.size() > 0) {
+    System.out.print(s.pop() + " ");
+}
+----
+
+== Queues
+
+* A queue lets you add items to one end of the queue (the tail) and remove them from the other end (the head)
+* Queues yield items in a FIFO order (first-in, first-out)
+ ** Items are removed in the same order in which they were added
+* Example
+ ** A line at a store
+ ** A printing queue
+* In Java, `Queue` is an interface
+ ** To initialize a `Queue`, use a `LinkedList`
+* https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html[Javadoc]
+
+=== Usage
+
+[source,java]
+----
+Queue<String> q = new LinkedList<String>();
+q.add("A");
+q.add("B");
+q.add("C");
+while (q.size() > 0) {
+    System.out.print(q.remove() + " ");
+}
+----
+
+== `PriorityQueue`
+
+* A priority queue collects elements, each of which has a priority
+* Unlike a regular queue, does not maintain a FIFO discipline
+* *Elements are retrieved according to their priority*
+ ** New items can be inserted in any order
+ ** When an item is removed, it is the item with the most urgent priority
+* It is customary to give low values to urgent priorities
+ ** *Priority 1* denotes the most urgent priority
+ ** Thus, each removal operation extracts the minimum element from the queue (*`poll()`*)
+* The elements are ordered according to their natural ordering, or by a `Comparator`
+ ** Depending on which constructor is used
+* https://docs.oracle.com/javase/7/docs/api/java/util/PriorityQueue.html[Javadoc]
+* `isEmpty()` comes from the `Collection` interface
+
+=== Examples
+
+==== Natural Ordering
+
+[source,java]
+----
+PriorityQueue<String> q = new PriorityQueue<String>();
+q.add("3");
+q.add("1");
+q.add("2");
+
+// Example with Queue.poll()
+// Yields: 1, 2, 3
+while (!q.isEmpty()) {
+    System.out.println(q.poll());
+}
+
+// Example with Iterator.poll()
+// Yields: 1, 2, 3
+Iterator<String> it = q.iterator();
+while (it.hasNext()) {
+    System.out.println(it.poll());
+}
+
+// Example with Iterator.next()
+// Note this does not obey priority
+// Yields: 3, 1, 2
+Iterator<String> it = q.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+----
+
+==== Comparator
+
+[source,java]
+----
+public class StringLengthComparator implements Comparator<String> {
+    public int compare(String s1, String s2) {
+        int compare = s1.length() - s2.length();
+        return compare;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        PriorityQueue<String> pq = new PriorityQueue<String>(new StringLengthComparator());
+        pq.add("Hello");
+        pq.add("verylongstringverylongstring");
+        pq.add("a");
+
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+    }
+}
+----
+
+== References
+
+* Horstmann (pdf): Chp. 15, pgs. 670 - 692
+* Bloch: pgs. 50 - 54
+* https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html
+* https://www.journaldev.com/13460/java-iterator

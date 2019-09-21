@@ -1,0 +1,11 @@
+# OS thumbnails
+.DS_Store
+Thumbs.db
+
+# IDE
+.asciidoctor
+.vscode
+
+# Generated sources
+dist/
+.generated.svg

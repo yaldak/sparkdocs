@@ -1,0 +1,412 @@
+= Interfaces
+Yalda Kako <yalda@kako.cc>
+:imagesdir: ./02-interfaces.assets
+:imagesoutdir: ./02-interfaces.assets
+:source-highlighter: coderay
+:source-linenums-option:
+:toc: left
+
+<<<
+
+== Highlights
+
+* An interface is a *reference data type* (similar to a class)
+** Can use interface names like any other data type name
+
+* An interface can only contain:
+*** Constants
+*** Method signatures
+*** Default methods
+*** Static methods
+*** Nested types
+
+* *Method bodies only exist for default and static methods*
+
+* Cannot be instantiated, but:
+** Can be implemented by classes
+** Can be extended by other interfaces
+
+== Declaration
+
+* An interface declaration consists of:
+** Modifiers
+** The keyword `interface`
+** The interface name
+** Any interfaces it extends
+
+* A `public` access modifier indicates visibility to any class, in any package
+
+* *Default visibility is package-private*, if `public` is omitted
+** package-private interfaces are only visible to classes in the same package
+
+* Interfaces support *multiple inheritance*
+** A class can extend only one other class
+** An interface can extend any number of interfaces, separated by commas
+
+<<<
+
+== Body of an Interface
+
+* Can contain abstract, default, and static methods
+** Abstract methods
+*** Do not contain an implementation
+*** Followed by a semicolon, but no braces
+** Default methods
+*** Defined with the `default` modifier
+** Static methods
+*** Defined with the `static` keyword
+
+* Sans `abstract`, `default`, or `static`, *methods are implicitly abstract*
+
+* *All methods are implicitly `public`*
+** Can omit the `public` access modifier
+** Different from class methods, where default visibility is package-private
+
+* Can contain constant value declarations
+** Implicitly `public`, `static`, and `final`
+** Can omit these modifiers
+
+=== Basic Example
+
+[source,java,linenums]
+----
+public interface Edible
+{
+    int getCalories();
+
+    boolean expiresBefore(Date date);
+}
+----
+
+<<<
+
+== Usage
+
+Any object assigned to a reference variable whose type is an interface must be
+an instance of a class that implements that interface.
+
+This example demonstrates the difference between using a *declared type vs.
+an actual type*.
+
+Observe that:
+
+* `isFriendlyWith()`, defined in `Animal`, takes an object of type `Animal`
+** `Cat` implements `Animal`; therefore, `Cat` is an `Animal`
+
+* `Cat.isFriendlyWith()` cannot call `getTemper()` without a cast
+
+=== Code
+
+[source,java]
+----
+public interface Animal {
+    boolean isFriendlyWith(Animal other);
+}
+
+public class Cat implements Animal {
+    private int temper;
+
+    public Cat(int temper) {
+        this.temper = temper;
+    }
+
+    public int getTemper() {
+        return this.temper;
+    }
+
+    @Override // Optional, promotes explicitness
+    public boolean isFriendlyWith(Animal other) {
+        if (other instanceof Cat) {
+            // Cannot call getTemper() without a cast
+            // Its method body only exists in the actual type Cat
+            return ((Cat) other.getTemper()) < 5;
+        }
+
+        return false;
+    }
+}
+----
+
+<<<
+
+== Multiple Inheritance
+
+* *Java classes do not support multiple inheritance*
+** Including abstract classes
+
+* A class can only extend one class, but *can implement multiple interfaces*
+** This can lead to a hierarchical, brittle inheritance structure
+
+* However, *interfaces can extend multiple other interfaces*
+** This allows for the construction of *hierarchical type frameworks*
+
+* Type hierarchies can be useful for organization
+** Not all structures fall neatly into a rigid hierarchy
+
+=== Example: Non-hierarchical Structure
+
+[source,java]
+----
+public interface Singer {
+    AudioClip sing(Song song);
+}
+
+public interface Songwriter {
+    Song compose(int chartPosition);
+}
+
+public interface SingerSongwriter extends Singer, Songwriter {
+    AudioClip strum();
+    void emote();
+}
+----
+
+* Note the absence of method access modifiers, which default to `public`
+** Remember, this is not the default method access modifier for classes
+
+* This level of flexibility isn't always needed, but can be helpful
+
+* The choice of interface inheritance makes sense in this scenario
+** There is not a strict hierarchy for inheritance
+
+<<<
+
+=== Anti-patterns
+
+* The *alternative is a bloated class hierarchy*
+** Undesirable to create a separate class for every supported combination of
+attributes (combinatorial explosion)
+
+* If there are latexmath:[n] attributes in the type system, then there are
+latexmath:[2^n] possible combinations you would have to support
+
+* Bloated class hierarchies can lead to bloated classes with many methods
+** The methods would differ only in the type of their arguments
+** There would be no types in the class hierarchy to capture common behaviors
+
+* This does not mean that you should avoid inheritance
+** *Choose the right pattern for the problem you are trying to solve*
+
+* Questions to ponder:
+** Would `Singer` inherit from `Songwriter`, or `Songwriter` from `Singer`?
+** Who is the parent?
+
+==== Why not Composition or Aggregation?
+
+[source,java]
+----
+// Is a singer composed of a songwriter?
+public class Songwriter {
+    public Song compose(int chartPosition);
+}
+
+public class Singer {
+    Songwriter songwriter = new Songwriter();
+}
+
+// Is a songwriter composed of a singer?
+public class Singer {
+    AudioClip sing(Song song);
+}
+
+public class Songwriter {
+    Singer singer = new Singer();
+}
+----
+
+Composition and aggregation are about one class being a property or belonging to
+another class.
+
+They does not make sense in this context as an alternative to interfaces.
+
+<<<
+
+== Default Methods
+
+* Ideally, interfaces should be designed for posterity
+
+* Before Java 8, adding an abstract method to an interface breaks all
+implementing classes
+
+* As of Java 8, the *default method construct* was added to interfaces
+** A `default` method does not need to be re-implemented in a concrete class
+*** If not re-implemented, it is inherited from the interface
+
+* Default methods allow:
+** Addition of new functionality to interfaces
+** Binary compatibility with code written to older versions of an interface
+
+* Useful for providing *standard method implementations* for new interfaces
+** Eases the task of implementing an interface
+
+* When you extend an interface with a default method, you can:
+** Not mention the default method at all, thus inheriting it
+** Redeclare the default method, which makes it `abstract`
+** Redefine the default method, which overrides it
+
+=== Pitfalls
+
+* *Avoid adding default methods to existing interfaces unless need is critical*
+** No guarantee that they will work with existing implementations
+** Existing implementations of an interface may fail at runtime
+*** Can compile without error or warning
+
+* *Cannot write default implementations of the `Object` class methods*
+** Compiler error will forbid it
+** Inheriting `Object` methods is strongly tied to single inheritance and state
+*** Interfaces are multiple-inherited, and stateless
+** Would add a lot of complexity for little incremental expressivity
+** Well-intentioned, "harmless" changes to separately compiled interfaces
+have potential to undermine the intended semantics of implementing classes
+
+* Default methods were not designed to:
+** Support removing methods from interfaces
+** Support changing existing method signatures
+** Neither of these changes are possible without breaking existing clients
+
+<<<
+
+== Abstract Classes vs. Interfaces
+
+* Java has two mechanisms to define a type that permits multiple implementations
+** Interfaces
+** Abstract classes
+
+* Abstract classes allow for:
+** Abstract methods
+** Default methods
+** Constants
+** Instance variables
+** *Only single inheritance*
+*** Severely constrains the use of abstract classes as type definitions
+*** Can only use them if you inherit from them
+
+* Interfaces allow for:
+** Abstract methods
+** Default methods
+** Constants
+** *Multiple inheritance*
+
+<<<
+
+== The Template Method Pattern
+
+* Combines the advantages of interfaces and abstract classes
+
+* Provides an abstract skeletal implementation class to go with an interface
+
+* The interface:
+** Defines the type
+** Defines default methods
+
+* The skeletal implementation class:
+** Implements the remaining non-primitive interface methods atop the primitives
+
+In this context, a *primitive*, is a basic interface or segment of code that
+can be used to build more sophisticated program elements or interfaces.
+
+=== Conventions
+
+* By convention, skeletal implementation classes are named `AbstractINTERFACE`
+** Where `INTERFACE` is the name of the interface they implement
+
+* Examples in the Java API (Collections framework):
+** `AbstractCollection`, `AbstractSet`, `AbstractList`, `AbstractMap`
+
+=== Creating a Skeletal Implementation
+
+. Study the interface and decide which methods are primitives
+** In terms of which of the others can be implemented
+** The primitives will be the abstract methods in the skeletal implementation
+
+. Provide default methods in the interface
+** For all methods that can be implemented directly atop the primitives
+** Recall: You cannot provide default methods for `Object` methods
+*** This includes `equals()` and `hashCode()`
+
+. If the primitives and default methods cover the interface, you're done
+** No need for a skeletal implementation class
+
+. Otherwise, write a class declared to implement the interface
+** With implementations of all of the remaining interface methods
+** It may contain any non-public fields and methods appropriate to the task
+
+<<<
+
+== Javadoc
+
+* Javadoc is a *documentation tool*
+
+* Defines a standard format for comments
+
+* Can generate HTML files to view the documentation from a web browser
+
+* Can vary across platforms, vendors, and versions
+
+* Used by API developers, especially to document interfaces
+
+=== Usage
+
+* Multi-line comments (`+/** ... **/+`) with two stars
+
+* Placed before class, field, or method declarations
+
+* Can include special tags to describe characteristics such as:
+** Method parameters
+** Return values
+
+* Tags can be used at the end of a Javadoc comment
+** Can provide more structured information about the code being described
+** For example, `@param` can be used to describe the method's parameters
+*** `@param` should be followed by the parameter name, and then a description
+
+=== Example: Default Methods
+
+[source,java]
+----
+public interface LotteryService {
+    List<String> cancel(); // abstract method
+
+    /**
+    * Return the lucky winners of this lottery.
+    *
+    * @implSpec The default implementation will pick winners randomly.
+    * @param count
+    *           the number of winners to return
+    * @return the (ordered) list of winners
+    */
+    default List<String> pickWinners(int count) {
+       // ...
+    }
+}
+----
+
+* `@implSpec` is a Javadoc tag for default methods
+("implementation specification")
+
+* Provides informative notes about the implementation
+** For example, performance characteristics specific to the JDK version
+
+== Takeaways
+
+* There is great risk in adding default methods to existing interfaces
+
+* If an interface contains a minor flaw, it may irritate its users forever
+
+* If an interface is severely deficient, *it may doom the API containing it*
+
+* Critically important to *test each new interface before releasing it*
+
+* Cannot count on correcting interface flaws after an interface is released
+
+== References
+
+* CS 420, Fall 2019; Rachel Trana, NEIU
+
+* Effective Java, 3rd Edition Joshua Bloch pp. 99-108
+
+* https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html
+
+* https://www.oracle.com/technetwork/articles/java/index-137868.html
+
+* https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html

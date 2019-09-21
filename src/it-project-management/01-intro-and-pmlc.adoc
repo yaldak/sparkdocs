@@ -1,0 +1,125 @@
+= Intro and PMLC
+Yalda Kako <yalda@kako.cc>
+:toc: left
+
+== Basic Terms
+
+* *Project:* unique, one-time work effort with start-end dates and objectives
+
+* *Project management:* process involved with managing a project
+
+* *Project manager (PM):* responsible and accountable for managing the project
+
+* *Sponsor:* permits a project to take place
+
+* *Product or service:* output of project activities
+
+== Project Managers
+
+=== Roles and Elements
+
+. Project Management Expert
+** Methodologies
+** PM Tools
+
+. Manager
+** Communication
+** Coordination
+** Delegation
+** Facilitation
+** Negotiation
+** Organization
+** Persuasion
+
+. Other "Soft Skills"
+** Cheerleading
+** Presentation
+** Writing Skills
+
+=== Personal Dispositions
+
+Attributes of personal dispositions that are desirable for PMs to have:
+
+* Experts in PM domain (tools and best practices)
+
+* Do not have to be experts in the problem domain they are trying to solve
+
+* Should have managerial skills (e.g. organize, structure, delegate, facilitate)
+
+* Should have soft skills (high emotional IQ)
+
+* Masterful ability to dissolve conflict
+
+== PMLC
+
+=== Basics
+
+* *Project Management Lifecycle (PMLC):* series of phases of a project
+
+* Activities yield deliverables/artifacts
+
+* Although we can use agile methodologies, especially in the execution phase,
+the PMLC lifecycle is largely *waterfall*
+
+* Output documents add "`meat`" and accountability to the project
+** Accountability helps determine if you are on track or in trouble
+** The documents are artifacts of the project's existence
+** Bad news: to go through the full PMLC, you have to create 5 documents
+** Good news: there is a lot of overlap among these documents
+
+* There is always a budget and you will have to balance needs
+
+=== Steps in Managing a Project
+
+. Define the problem
+
+. Develop solution options
+
+. Plan the project
+  a. What must be done?
+  b. Who will do it?
+  c. How will it be done?
+  d. When must it be done?
+  e. How much will it cost?
+
+. Execute the plan
+
+. Monitor and control progress
+  a. Are we on target?
+  b. If not, what must be done?
+  c. Should the plan be changed?
+
+. Close project
+  a. What went well?
+  b. What didn't?
+  c. What else can we learn?
+
+=== Four Phases of a Project
+
+. Concept
+** Output: *business case*
+*** Provides justification for undertaking the work / project
+
+. Plan
+** Specifies "what we're going to do and how we're going to do it"
+** Output: *project charter*
+*** An agreement that governs the size and scope of the project
+*** "What we will do, and what we will not do."
+** Output: *project plan*
+*** An operating plan for the project
+
+. Execution & Control
+** Output: *status reports*
+*** Show progress and alert stakeholders of issues
+
+. Close
+** How do we deliver and move forward?
+** Output: *lessons learned document*
+*** Outlines what went well and what can be done better
+
+=== Tools
+
+* Work Breakdown Structure (WBS)
+* Network Diagrams
+* GANTT Charts
+* Change Control Mechanism

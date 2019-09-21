@@ -1,0 +1,153 @@
+= Java Versions
+Yalda Kako <yalda@kako.cc>
+:imagesdir: ./01-java-versions.assets
+:imagesoutdir: ./01-java-versions.assets
+:source-highlighter: coderay
+:source-linenums-option:
+:toc: left
+
+<<<
+
+== Recent Versions
+
+* Java 13/14 (early access builds): released end of July 2019
+* Java 12: released March 2019
+* Java 11 (LTS): released in September 2018
+
+== LTS Releases
+
+A *Long Term Support (LTS)* release is a version of Java that will remain
+the industry standard for several years.
+
+Example: Java 8
+
+* Released in 2014
+* Updates until 2020
+* Extended support ends by 2025
+
+== Changelog
+
+=== Java 8
+
+* Big changes
+
+* Streams API
+** Supports many parallel operations to process data
+** Chooses the best low-level execution mechanism
+** Avoids the need to write code that uses `synchronized`
+*** Not only highly error-prone, but also more expensive on multicore CPUs
+
+* Concise techniques to pass code to methods (method references, lambdas)
+** AKA functional-style programming
+
+* Default methods on interfaces
+
+<<<
+
+=== Java 9
+
+* Java Platform module system
+** Modular JAR files contain an additional module descriptor.
+*** In this module descriptor, dependencies on other modules are expressed
+through `requires` statements
+*** Additionally, `exports` statements control which packages are accessible
+to other modules
+*** Allows for encapsulation
+
+* Linking
+** `jlink` tool to use module dependencies to create a minimal runtime
+environment, containing just those modules necessary to run your application
+
+* JShell
+** Interactive Java REPL (read-eval-print loop)
+
+* Collection factory methods (`Map.of()`, etc.)
+
+=== Java 10
+
+* The `var` type
+** Not a keyword, but a type!
+** It introduces local-variable type inference to the language
+** It figures out at compile-time the reference type based on the value type
+
+* Unmodifiable collection enhancements
+
+* Garbage-First Garbage Collection (G1GC) improvements
+** Introduction of full parallel processing during a Full GC
+
+* New JIT compiler
+** Written entirely in Java (as opposed to C++)
+** Only usable on Linux boxes and must be enabled
+
+* Thread-local handshakes
+** The JVM can put an arbitrary number of threads into a safepoint
+** Threads may continue running after performing the prescribed "handshake"
+** The result is that the JVM can pause just one thread at a time, whereas
+before it had to pause them all
+
+* Container awareness
+** The JVM now knows when it is running inside a Docker container
+** It is aware about what the docker container allocates to memory, CPU,
+and other system resources
+
+<<<
+
+=== Java 11
+
+* Lots of changes
+
+* The deployment stack required for running applets and web applications has
+been removed from JDK
+** Deprecated since JDK 9
+** Browser support removed due to unavailability of deployment stack
+
+* Auto-update has been removed from JRE installations in Windows and MacOS
+
+* JavaFX and Java Mission Control is now available as a separate download
+
+* Java language translation for French, German, Italian, Korean,
+Portuguese (Brazilian), Spanish, and Swedish is no longer provided
+
+* In this version, JRE and Server JRE are no longer offered
+** Only JDK is offered
+
+* Updated distribution packaging format (Oracle Java)
+** For Windows has changed from tar.gz to .zip
+** For macOS has changed from .app to .dmg
+
+* New String methods
+** `isBlank()`, `repeat()`, `lines()`, `stripLeading()`, `stripTrailing()`,
+`strip()`
+
+* New `File` methods
+** `writeString()`, `readString()`, `isSameFile()`
+
+* Pattern recognizing methods
+** `asMatchPredicate()`
+
+* New `Optional` methods
+
+* Epsilon Garbage Collector
+** Handles memory allocation but does not have a memory reclamation mechanism
+** Once the available Java heap is exhausted, JVM will shut down
+
+* Time unit conversion
+
+* Removal of `Thread.stop()` and `Thread.destroy()` methods
+
+* Local-variable (`var`) syntax for lambda parameters
+
+<<<
+
+== Climate Change
+
+As new features are added to rapidly evolving languages, e.g. JavaScript,
+they can eventually influence more stable ones such as Java.
+
+image::climate-change.png[Infographic]
+
+== References
+
+* CS 420, Fall 2019; Rachel Trana, NEIU
+
+* https://www.geeksforgeeks.org/java-11-features-and-comparison/

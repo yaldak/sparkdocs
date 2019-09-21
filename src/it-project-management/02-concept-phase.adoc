@@ -1,0 +1,335 @@
+= Concept Phase
+Yalda Kako <yalda@kako.cc>
+:drawio-extension: .rendered.svg
+:imagesdir: ./02-concept-phase.assets
+:imagesoutdir: ./02-concept-phase.assets
+:mathematical-format: svg
+:toc: left
+
+<<<
+
+== Business Case
+
+=== Basics
+
+* Key deliverable of the concept phase
+
+* Answers "What?" and "How?"
+
+* Powerful document, but--surprisingly--not always created
+
+* The PM may not be able to complete this document alone
+** For example, support of financial or business analysts may be needed
+
+=== Elements
+
+The business case should specify:
+
+* The **problem** to be solved
+
+* The **goals and benefits** of the project
+
+* The **objectives** of the project
+** "What are we trying to accomplish?"
+
+* The articulation the **needs and wants** of stakeholders
+** Needs are must-haves
+** Wants are optional; if delivered, they are often the excitement factor
+
+* Potential project **scope**
+** "What issues are we addressing?"
+** "What issues are we NOT addressing?" (explicitly)
+** There is no standardized format for this segment
+
+* *Risks and impacts* to the environment
+
+* A *cost-benefit analysis*
+
+* A determination of *return on investment* (ROI)
+** For the strongest argument, provide a determination of ROI against the
+net-present value (NPV)
+
+<<<
+
+=== Template
+
+. Business Case Overview
+** Proposed Project
+*** Narrative description of the proposed project (e.g. a paragraph)
+** Project Mission
+*** Can be short and succinct
+** This overview section is the *core and essence* of the document
+
+. Proposed Project Details
+** Describe the problem to be addressed
+** Goals and benefits
+** Needs and wants of stakeholders
+*** Template in this document
+** Potential project scope
+*** Also include issues/features/functions you do NOT plan to address
+** Cost-benefit analysis
+*** ROI determination (if possible)
+
+. How the project supports:
+** Corporate vision/missions
+** Corporate goals/objectives
+*** Can link to earlier parts of the document (helpful for larger projects)
+** Indications of functional goals/objectives that come with the elements of
+the project
+
+=== About Templates
+* Fortune 500 companies have their own project management methodology
+** They provide their own templates
+
+* In smaller companies, there may not be a uniformly accepted methodology
+** The templates here (e.g. Needs and Wants) may be especially useful in
+smaller companies.
+
+<<<
+
+== Project Drivers
+
+Why do we actually do projects?
+
+* Cost-reduction
+** Often a primary motive
+** Takes place in many different forms, such as lay-offs
+** "How do we make things faster and cheaper?"
+** The ROI vs. NPV analysis drills in on this
+
+* Innovation
+
+* Competitive advantage
+
+* Risk diversification
+** For example, avoiding vendor lock-in (Windows vs. Linux)
+
+Some projects are not necessarily tailored for cost-reduction:
+
+* The company may find it important to enter a new market sector
+
+* Through innovation and competitive advantage, the long-term may yield payback
+
+* The ROI analysis for the short-term may not be necessary in this scenario
+
+<<<
+
+== Needs and Wants
+
+=== Basics
+
+* Go through the stakeholder community and ask them for their needs and wants
+
+* Needs are generally firm requirements
+
+* Provide a high level estimate for the entire project cost and efforts (time)
+
+* Used to estimate high level parameters and to start framing the issue
+
+* Once completed, review with sponsors / stakeholders
+
+* *Sponsor:* the person who has to pay for the initiative/foots the bill
+(e.g. CEO)
+
+* *Stakeholders:* beneficiaries of certain components of the system
+(e.g. departments)
+
+* Objective: Find a place that meets all must haves and as many others as
+possible
+
+=== Template
+
+[source]
+----
+# Repeat for sponsor, stakeholder (1-n)
+{Sponsor | Stakeholder}: Name
+
+NEEDS                            | WANTS
+=====================================================================
+Item #1                  $____   | Item #1                  $____
+Item #2                  $____   | Item #2                  $____
+
+Total                    $____   | Total                    $____
+
+# Then, compute grand total for needs and wants
+---------------------------------------------------------------------
+Grand Total              $____   | Grand Total               $____
+
+----
+
+=== Needs vs. Wants
+
+==== Needs
+
+* List with approximate dollar value associated (e.g. purchase cost, labor/time)
+
+* Approx. price tag is an order of magnitude estimate, not precise
+(e.g., $8, not $8.33)
+
+* Useful to discover where the heavy hitting items are
+
+* May be firm in the eye of the beholder (depending on clientele) - not up to PM
+
+==== Wants
+
+* List with approximate cost estimate
+
+* Usually have a negotiable price
+
+<<<
+
+==== Example
+
+Problem: I need a place to live.
+
+Needs (must haves):
+
+* 3 BR house
+* 2,500 square feet
+* 2 car garage
+* 1-acre lot
+* Large family room
+
+Wants (negotiable piece):
+
+* Room for a home office
+* Basement
+
+Nice to haves:
+
+* Fireplace in the family room
+
+<<<
+
+== ROI
+
+* *Return on investment (ROI):* a ratio between net profit and cost of
+investment
+** A high ROI means the investment's gains compare favorably to its cost
+** As a performance measure, used to evaluate the efficiency of an investment
+*** Can also be used to compare the efficiencies across different investments
+** Numeric figure, but can also express period
+
+=== ROI Analysis
+
+* In financial terms, qualify what the benefits to the organization are if a
+particular project is completed
+** Financial pictures of a project's undertaking are powerful in corporate
+contexts
+
+* On the back of an envelope, sufficient to determine if the project should
+move forward
+
+* How can a financial picture be painted to convince oneself that a project is 
+worth undertaking or not worth it based on ROI?
+** For example, ERP replacement
+*** Rattles chains across the whole company, invasive project
+*** Sometimes takes years
+*** Is it worth it?
+
+* How long will it take until I save net cash flow?
+** That is, my balance sheet actually turns positive
+** Important because there is additional cost I have to expend (work to be
+done)
+
+* To determine ROI, determine how far out in the future monthly savings will
+offset the bubble cost the project incurred
+
+* Total ROI period is the project implementation period
++ **the break-even period**
+** If there is no break-even period, there will never be a positive ROI
+
+=== Considerations
+
+Considerations to make:
+
+* Functional costs
+** Critical and need to be stated
+
+* Maintenance and support labor or fees
+
+* Time value of money (e.g. inflation, interest rates)
+* As time goes on and costs are incurred and benefits come in over a long 
+period, what is the life cycle of the cash cycle?
+
+* When is money actually being expended or saved?
+
+==== Net-present value (NPV)
+
+* Since we need to make a decision “today”, indication of how costs/benefit 
+are reflected in today’s dollar
+
+* Calculations
+** Costs in and costs out are scaled to today’s dollar
+** Financial analysts should be involved
+
+<<<
+
+== Terms
+
+* *Total Project Cost (TPC):* The sum, without duplication of the engineering
+cost and all project costs
+** Also referred to as the *bubble cost*
+
+* *Run Rate (RR):* A concept of how the financial performance of a company
+would look if current results were extrapolated into future periods
+
+* *Monthly Run Rate (MRR):* Cost the system imposes for an entire month
+** May or may not be constant
+
+* *Annualized Run Rate (ARR):* Cost the system imposes for an entire year
+** If the MRR is constant: latexmath:[ARR = MRR \times 12]
+** If the MRR is not constant, but discrete:
+latexmath:[ARR = \sum_{i=0}^{12}MRR_i ]
+
+* *Time Value of Money (TVM):* The concept that money available at the present
+time is worth more than the identical sum in the future due to its potential
+earning capacity
+** Core principal of finance
+** Provided money can earn interest, any amount of money is worth more the
+sooner it is received
+
+* *Equivalent monthly project cost:* 
+latexmath:[C = \frac{TPC}{\text{# of months in project lifecycle}}]
+
+* *# of months to break even:*
+** The number of months to break even, from implementation completion
+latexmath:[M = \frac{TPC}{\text{Estimated monthly savings}}]
+
+* *Total ROI Period:*
+** The entire implementation period + the *break-even period*
+** If there is no break-even period, there will never be a positive ROI
+
+<<<
+
+== Professor's Example
+
+=== Time Value of Money Graph
+
+image::professor-tvm-example{drawio-extension}[Graph,640,480]
+
+* TPC = $500k
+* MRR = $100k
+* First year run rate = $100k (constant run rate of current solution)
+* Second year run rate = $80k
+* ARR = $100k * 12 = $1.2m
+* Equiv. monthly project cost = $500k / 24 = $20,833 
+* $20k * x months = $500k
+* x months until $20k is saved (break-even time)
+* $20k = expected monthly savings
+
+Red line ("every month we save $20k")
+
+*fixme* # of months to break even = $500k/$20k = 25 months
+
+Total ROI period = 24 + 25 = 49 months
+
+What might be happening (month 0 -> n):
+
+* Staffing up
+* Buying equipment
+* Buying project space
+* Peak staffing (the constant line)
+* Let developers go
+* Let QA go
+* Eventually (2 years later), let PMs go
