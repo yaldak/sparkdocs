@@ -220,7 +220,7 @@ contexts
 * On the back of an envelope, sufficient to determine if the project should
 move forward
 
-* How can a financial picture be painted to convince oneself that a project is 
+* How can a financial picture be painted to convince oneself that a project is
 worth undertaking or not worth it based on ROI?
 ** For example, ERP replacement
 *** Rattles chains across the whole company, invasive project
@@ -249,18 +249,18 @@ Considerations to make:
 * Maintenance and support labor or fees
 
 * Time value of money (e.g. inflation, interest rates)
-* As time goes on and costs are incurred and benefits come in over a long 
+* As time goes on and costs are incurred and benefits come in over a long
 period, what is the life cycle of the cash cycle?
 
 * When is money actually being expended or saved?
 
 ==== Net-present value (NPV)
 
-* Since we need to make a decision “today”, indication of how costs/benefit 
-are reflected in today’s dollar
+* Since we need to make a decision "today", indication of how costs/benefit
+are reflected in today's dollar
 
 * Calculations
-** Costs in and costs out are scaled to today’s dollar
+** Costs in and costs out are scaled to today's dollar
 ** Financial analysts should be involved
 
 <<<
@@ -289,7 +289,7 @@ earning capacity
 ** Provided money can earn interest, any amount of money is worth more the
 sooner it is received
 
-* *Equivalent monthly project cost:* 
+* *Equivalent monthly project cost:*
 latexmath:[C = \frac{TPC}{\text{# of months in project lifecycle}}]
 
 * *# of months to break even:*
@@ -313,7 +313,7 @@ image::professor-tvm-example{drawio-extension}[Graph,640,480]
 * First year run rate = $100k (constant run rate of current solution)
 * Second year run rate = $80k
 * ARR = $100k * 12 = $1.2m
-* Equiv. monthly project cost = $500k / 24 = $20,833 
+* Equiv. monthly project cost = $500k / 24 = $20,833
 * $20k * x months = $500k
 * x months until $20k is saved (break-even time)
 * $20k = expected monthly savings
