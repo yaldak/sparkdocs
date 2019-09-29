@@ -1,0 +1,70 @@
+== Network Diagrams
+:drawio-extension: .rendered.svg
+:imagesdir: ./05-network-diagrams.assets
+:imagesoutdir: ./05-network-diagrams.assets
+:mathematical-format: svg
+:toc: left
+
+=== Recap
+
+After creating the WBS, you need to determine:
+
+* Timeframes for each task
+* Priorities for each task
+
+This is where Network Diagrams come in.
+
+== Purpose
+
+* Help you determine the order in which tasks are performed
+
+* Also referred to as **PERT charts**
+** "Program Evaluation & Review Technique"
+** Developed in the late 50's by the US Navy for large projects
+** NASA using them for Artemis 2024 moon mission
+
+* Influenced by the WBS
+** If your WBS is structured by work cycle (phases),  it is reasonable to assume
+that the order of events is given to you by the activities at the activity level
+** If your WBS is structured by subject matter or deliverables, it is by no
+means clear how to do the tasks or arrange them in a particular sequence
+** For example, the following activity set of a WBS makes the network diagram
+structure obvious:
+
+[plantuml, wbs-activity-example.generated, svg, align="center"]
+----
+@startuml
+digraph foo {
+    rankdir=LR;
+    
+    Concept -> Design -> Engineering -> Testing -> Deployment;
+}
+@enduml
+----
+
+* Provides a *dependency analysis* such that, when completed, it specifices
+the precedence/order of events in which events happen
+** Specifies sequence and parallelism
+
+== Notations
+
+* There is no uniformly accepted notation for network diagrams
+** One form may lend itself better in certain situations
+
+==== Variant 1
+
+===== Legend
+
+image:pert-variant-1-legend{drawio-extension}[Legend]
+
+* Duration, written on the activity arrow, is indicated by a time frame
+
+* A **dummy** task is a task that does not consume resources
+** It is a way to depict an event sequence without assigning resources to it
+
+===== Example
+
+image:pert-variant-1-example{drawio-extension}[Example]
+
+===== Explanation
+
