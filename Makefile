@@ -1,5 +1,5 @@
 target:
-	./publish-html.sh
+    ./publish-html.sh
 
 clean:
-	rm -rf dist
+    rm -rf dist
