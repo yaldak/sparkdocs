@@ -157,6 +157,8 @@ Grand Total              $____   | Grand Total               $____
 
 ----
 
+<<<
+
 === Needs vs. Wants
 
 ==== Needs
@@ -175,8 +177,6 @@ Grand Total              $____   | Grand Total               $____
 * List with approximate cost estimate
 
 * Usually have a negotiable price
-
-<<<
 
 ==== Example
 
