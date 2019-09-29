@@ -267,7 +267,7 @@ are reflected in today's dollar
 
 == Terms
 
-* *Total Project Cost (TPC):* The sum, without duplication of the engineering
+* *Total Project Cost (TPC):* The sum, without duplication, of the engineering
 cost and all project costs
 ** Also referred to as the *bubble cost*
 
