@@ -20,7 +20,7 @@ echo
 
 ## Tab check
 echo "Checking for tab characters..."
-pcregrep --include='.+\.adoc$' --color='auto' -r -n '\t' ./src
+pcregrep --color='auto' --include='.+\.adoc$' -r -n '\t' ./src
 
 if [ $? -eq 1 ]; then
     echo "No tab characters found."
@@ -30,7 +30,7 @@ echo
 
 ## Non-ASCII check
 echo "Checking for non-ASCII characters..."
-pcregrep --include='.+\.adoc$' --color='auto' -r -n '[^\x00-\x7F]' ./src
+pcregrep --color='auto' --include='.+\.adoc$' -r -n '[^\x00-\x7F]' ./src
 
 if [ $? -eq 1 ]; then
     echo "No non-ASCII characters found."
