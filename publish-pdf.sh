@@ -4,7 +4,7 @@ OUTDIR="$(pwd)/dist/pdf"
 
 rm -rf "$OUTDIR/*"
 mkdir -p "$OUTDIR"
-cp -r src/* "$OUTDIR"
+cp -r docs/* "$OUTDIR"
 
 docker run --rm -v "$OUTDIR:/documents/" asciidoctor/docker-asciidoctor \
     asciidoctor-pdf \
