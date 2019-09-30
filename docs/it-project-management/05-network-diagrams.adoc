@@ -5,30 +5,34 @@
 :mathematical-format: svg
 :toc: left
 
-=== Recap
+== Recap
 
-After creating the WBS, you need to determine:
+After creating the WBS, but before doing the work, you need to determine:
 
 * Timeframes for each task
+
 * Priorities for each task
 
 This is where Network Diagrams come in.
 
 == Purpose
 
-* Help you determine the order in which tasks are performed
+* Help you determine and show the order in which tasks are performed
 
 * Also referred to as **PERT charts**
 ** "Program Evaluation & Review Technique"
+** *Robust and reproducible*
 ** Developed in the late 50's by the US Navy for large projects
 ** NASA using them for Artemis 2024 moon mission
 
 * Influenced by the WBS
 ** If your WBS is structured by work cycle (phases),  it is reasonable to assume
 that the order of events is given to you by the activities at the activity level
+__checkme__ (before you do design)
 ** If your WBS is structured by subject matter or deliverables, it is by no
 means clear how to do the tasks or arrange them in a particular sequence
-** For example, the following activity set of a WBS makes the network diagram
+
+* For example, the following activity set of a WBS makes the network diagram
 structure obvious:
 
 [plantuml, wbs-activity-example.generated, svg, align="center"]
@@ -37,12 +41,12 @@ structure obvious:
 digraph foo {
     rankdir=LR;
     
-    Concept -> Design -> Engineering -> Testing -> Deployment;
+    Concept -> Design -> Engineering -> Construction -> Testing -> Deployment;
 }
 @enduml
 ----
 
-* Provides a *dependency analysis* such that, when completed, it specifices
+* Provides a *dependency analysis* such that, when completed, it specifies
 the precedence/order of events in which events happen
 ** Specifies sequence and parallelism
 
@@ -58,13 +62,79 @@ the precedence/order of events in which events happen
 image:pert-variant-1-legend{drawio-extension}[Legend]
 
 * Duration, written on the activity arrow, is indicated by a time frame
-
-* A **dummy** task is a task that does not consume resources
-** It is a way to depict an event sequence without assigning resources to it
+** The unit is chosen and consistent throughout the diagram
+** In this example, the unit is days
 
 ===== Example
 
 image:pert-variant-1-example{drawio-extension}[Example]
 
-===== Explanation
+Excerpt, explained:
 
+Once event 40 begins, 3 activities can commence (E, C, D). Upon completion
+of those events, event 50 happens.
+
+* A and B can only happen in sequence
+
+* C and D can only happen in parallel upon completion of B
+
+* 50 can only happen when C, D, and E are done
+
+* **Activities are different than events**
+** The events are not activities or tasks in the WBS
+** Tasks are subcomponents of activities, but for the purpose of the diagram,
+they are the same
+
+* The Network Diagram represents your WBS at a certain level of decomposition
+
+Advantages: _Missing_
+
+If you decompose activities into tasks and have now assigned a duration or cost
+for each of the tasks, as you aggregate those tasks to the activity level, the
+times and the costs for the tasks also get aggregated upstream.
+
+If you aggregate the times upstream, it will be difficult to compute the total duration of the project, but you can compute effort.
+__Missing ~10m__
+
+===== Concepts
+
+* A **dummy** task is a task that does not consume resources
+** It is a way to depict an event sequence without assigning resources to it
+
+** *Burst point:* an activity that spawns off multiple activities in parallel
+after it is completed
+
+* *Sink:* a set of multiple activities that, when completed, spawn off
+another activity
+
+===== Critical Path
+
+The longest path through a network. Due to this property, it represents the
+earliest completion time of a project.
+
+===== Float/Slack
+
+The difference between the latest start date and earliest start dates is called
+the float/slack
+
+Number of days by which can delay a non-critical task without impacting the
+earliest completion time of a project
+
+Gives you tunable parameters as a manager
+
+
+•	When B is complete, we have used 4 days
+o	Complete B: Day 4. (we are at)
+o	Complete E: Day 9
+o	Start C: Day 4			Complete C: Day 9 (Can start as late as 9-3=6)
+o	Start D: Day 4			Complete D: Day 9 (can start as late as 9-2=7)
+
+==== Variant 2
+
+===== Legend
+
+== References
+
+* Lecture __missing__
+
+* Textbook pages 230 and above __missing__
