@@ -148,7 +148,7 @@ ACTIVITY 1      $       T
 
 == Variant 1
 
-==== Legend
+=== Legend
 
 image:pert-variant-1-legend{drawio-extension}[Legend]
 
@@ -157,7 +157,7 @@ image:pert-variant-1-legend{drawio-extension}[Legend]
 ** In this example, the unit is days
 ** Applies to an activity or task
 
-==== Example
+=== Example
 
 image:pert-variant-1-example{drawio-extension}[Example]
 
@@ -174,8 +174,7 @@ Excerpt, explained:
 
 * 50 can only happen when C, D, and E are done
 
-==== Critical Path
-
+=== Critical Path
 
 In this example:
 
@@ -188,8 +187,7 @@ In this example:
 * Sum of durations in the critical path is 16
 ** Earliest completion time is therefore 16 days
 
-
-==== Float/Slack
+=== Float/Slack
 
 * When B is complete, we have used 4 days
 ** Complete B: Day 4. (we are at)
@@ -197,11 +195,11 @@ In this example:
 ** Start C: Day 4 / Complete C: Day 9 (Can start as late as 9-3=6)
 ** Start D: Day 4 / Complete D: Day 9 (can start as late as 9-2=7)
 
-=== Variant 2
+== Variant 2
 
 __fixme__
 
-==== Notes
+=== Notes
 
 * Trace a reverse path through the network to determine the LS and LF
 ** Start looking at EF of latest duration in the network
