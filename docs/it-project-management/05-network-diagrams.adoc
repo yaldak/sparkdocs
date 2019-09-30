@@ -1,4 +1,4 @@
-== Network Diagrams
+= Network Diagrams
 :drawio-extension: .rendered.svg
 :imagesdir: ./05-network-diagrams.assets
 :imagesoutdir: ./05-network-diagrams.assets
@@ -87,7 +87,7 @@ of a project
 ** In a network diagram:
 *** Beginning and ending of an activity are represented as
 events __contradict__
-*** Each event is represented as a node 
+*** Each event is represented as a node
 
 * *Task:* a subcomponent of an activity
 ** For the purpose of network diagrams, a task is treated as an activity
@@ -208,7 +208,7 @@ __fixme__
 
 __unsure__:
 
-* LF of last box = EF ? or 16 - EF? 
+* LF of last box = EF ? or 16 - EF?
 * LS of last box = LF - DU ?
 
 * Critical Path: X indicates activities where earliest = same = CP
