@@ -126,7 +126,7 @@ for each of the tasks, as you aggregate those tasks to the activity level, the
 times and the costs for the tasks also get aggregated upstream.
 
 If you aggregate the times upstream, it will be difficult to compute the total
-duration of the project, but you can compute effort.
+duration of the project, but you can compute effort (parallelism and man-hours)
 
 __Missing ~10m__
 
