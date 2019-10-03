@@ -1,4 +1,5 @@
 = Network Diagrams
+Yalda Kako <yalda@kako.cc>
 :drawio-extension: .rendered.svg
 :imagesdir: ./05-network-diagrams.assets
 :imagesoutdir: ./05-network-diagrams.assets
@@ -176,9 +177,12 @@ Excerpt, explained:
 In this example:
 
 * Subpath: A, B, C, F: 13 (total duration)
+
 * Subpath: A, B, D, F: 12
+
 * Subpath: A, B, E, G, H: 16 (**critical path**)
 ** Implies C and D - all tasks must be completed
+
 * Subpath: A, B, C, G, H: __missing__
 
 * Sum of durations in the critical path is 16
@@ -227,8 +231,8 @@ complex networks
 
 == References
 
-* https://www.quora.com/What-is-the-difference-between-event-and-activity
+* Armin van Roeseler; CS 413, Fall 2019 NEIU 
 
-* Lecture __missing__
+* https://www.quora.com/What-is-the-difference-between-event-and-activity
 
 * Textbook pages 230 and above __missing__

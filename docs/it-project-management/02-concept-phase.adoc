@@ -47,7 +47,8 @@ The business case should specify:
 
 * A determination of *return on investment* (ROI)
 ** Discover the break-even period
-** For the strongest argument, provide a determination of ROI against the
+
+For the strongest argument, provide a determination of ROI against the
 *net-present value (NPV)*
 
 <<<
@@ -166,7 +167,7 @@ Grand Total              $____   | Grand Total               $____
 
 * List with approximate dollar value associated (e.g. purchase cost, labor/time)
 
-* Approx. price tag is an order of magnitude estimate, not precise
+* Approximate price tag is an order of magnitude estimate, not precise
 (e.g., $8, not $8.33)
 
 * Useful to discover where the heavy hitting items are
@@ -240,6 +241,8 @@ offset the bubble cost the project incurred
 + **the break-even period**
 ** If there is no break-even period, there will never be a positive ROI
 
+<<<
+
 === Considerations
 
 Considerations to make:
@@ -292,11 +295,11 @@ earning capacity
 sooner it is received
 
 * *Equivalent monthly project cost:*
-latexmath:[C = \frac{TPC}{\text{# of months in project lifecycle}}]
+* latexmath:[C = \frac{TPC}{\text{# of months in project lifecycle}}]
 
 * *# of months to break even:*
 ** The number of months to break even, from implementation completion
-latexmath:[M = \frac{TPC}{\text{Estimated monthly savings}}]
+** latexmath:[x = \frac{TPC}{\text{Estimated monthly savings}}]
 
 * *Total ROI Period:*
 ** The entire implementation period + the *break-even period*
@@ -318,8 +321,7 @@ Suppose that:
 ** Equiv. monthly project cost: latexmath:[C = \frac{\$500,000}{24} = \$20,833]
 
 * First year:
-** latexmath:[MRR = \$100,000]
-** Constant MRR for the current solution
+** latexmath:[MRR = \$100,000] (constant for the current solution)
 ** Therefore, latexmath:[ARR = \$100,000 \times 12 = \$1,200,000]
 
 * Second year:
@@ -335,7 +337,9 @@ latexmath:[\$20,000] is saved (time to break-even), we can see that:
 
 Therefore, the total ROI period is latexmath:[24 + 25 = 49] months
 
-==== Analysis
+<<<
+
+=== Analysis
 
 What might be happening (month 0 -> n):
 
