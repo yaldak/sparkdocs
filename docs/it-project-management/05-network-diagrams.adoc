@@ -6,6 +6,8 @@ Yalda Kako <yalda@kako.cc>
 :mathematical-format: svg
 :toc: left
 
+<<<
+
 == Recap
 
 After creating the WBS, but before doing the work, you need to determine:
@@ -33,6 +35,8 @@ performed
 
 * There is **no uniformly accepted notation** for network diagrams
 ** One form may lend itself better in certain situations
+
+<<<
 
 == Relationship to WBS
 
@@ -67,6 +71,8 @@ digraph example {
 @enduml
 ----
 
+<<<
+
 == Definitions
 
 === Activity vs. Event
@@ -94,6 +100,8 @@ of a project
 
 __factcheck__
 
+<<<
+
 === Structures
 
 * **Dummy task:** a task that does not consume resources
@@ -117,7 +125,7 @@ the earliest completion time of a project
 ** Any increment in the time of a critical path item immediately changes
 duration of the project
 
-== Application
+== Applications
 
 If you decompose activities into tasks and have now assigned a duration or cost
 for each of the tasks, as you aggregate those tasks to the activity level, the
@@ -143,6 +151,8 @@ ACTIVITY 1      $       T
     Total       8       7
 ----
 
+
+<<<
 
 == Variant 1
 
@@ -172,6 +182,8 @@ Excerpt, explained:
 
 * 50 can only happen when C, D, and E are done
 
+<<<
+
 === Critical Path
 
 In this example:
@@ -196,6 +208,8 @@ In this example:
 ** Start C: Day 4 / Complete C: Day 9 (Can start as late as 9-3=6)
 ** Start D: Day 4 / Complete D: Day 9 (can start as late as 9-2=7)
 
+<<<
+
 == Variant 2
 
 === Legend
@@ -205,6 +219,8 @@ image:pert-variant-2-legend{drawio-extension}[Legend]
 === Example
 
 image:pert-variant-2-example{drawio-extension}[Example]
+
+<<<
 
 === Notes
 
