@@ -76,8 +76,8 @@ of a project
 ** Consumes both time and resources
 ** In a network diagram:
 *** An activity is represented by an arrow
-*** The head of an arrow represents the start of activity __contradict__
-*** The tail of arrow represents its end __contradict__
+*** The head of an arrow represents the start of activity
+*** The tail of arrow represents its end
 
 * *Event:* an occurrence or an outcome which is of significance
 ** "Something that happens"
@@ -85,8 +85,7 @@ of a project
 ** A network diagram starts with an initial event and ends at a terminal event
 ** __Future research:__ Fulkerson's Rule
 ** In a network diagram:
-*** Beginning and ending of an activity are represented as
-events __contradict__
+*** Activities lead to/from events __Check with professor__
 *** Each event is represented as a node
 
 * *Task:* a subcomponent of an activity
@@ -119,18 +118,16 @@ duration of the project
 
 == Application
 
-__fixme__
-
 If you decompose activities into tasks and have now assigned a duration or cost
 for each of the tasks, as you aggregate those tasks to the activity level, the
 times and the costs for the tasks also get aggregated upstream.
 
 If you aggregate the times upstream, it will be difficult to compute the total
-duration of the project, but you can compute effort (parallelism and man-hours)
+duration of the project, but you can compute effort (parallelism and man-hours).
 
-__Missing ~10m__
+__Some stuff might be missing here. Yalda to fix__
 
-Table
+=== Calculation Example
 [source]
 ----
 ACTIVITY 1      $       T
@@ -197,21 +194,28 @@ In this example:
 
 == Variant 2
 
-__fixme__
+=== Legend
+
+image:pert-variant-2-legend{drawio-extension}[Legend]
+
+=== Example
+
+image:pert-variant-2-example{drawio-extension}[Example]
 
 === Notes
 
 * Trace a reverse path through the network to determine the LS and LF
-** Start looking at EF of latest duration in the network
+** Start looking at the EF of the node with longest duration in the network
 
-__unsure__:
+Observations:
 
-* LF of last box = EF ? or 16 - EF?
-* LS of last box = LF - DU ?
+// * LF of last box = EF ? or 16 - EF? */
+* LS of H = LF - DU
 
-* Critical Path: X indicates activities where earliest = same = CP
-** Cones without x have slack
-** More formal method to determine critical path for complex network
+* Critical Path: indicates activities where ES/EF=LS/LF
+** Nodes not in the critical path have slack
+** This variant is a more formal method to determine critical path for 
+complex networks
 
 * Walk a forward path to get earliest times
 * Walk a backward path for latest times
