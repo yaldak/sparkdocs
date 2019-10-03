@@ -1,0 +1,21 @@
+= Primary Project Drivers
+Yalda Kako <yalda@kako.cc>
+:drawio-extension: .rendered.svg
+:imagesdir: ./04-primary-project-drivers.assets
+:imagesoutdir: ./04-primary-project-drivers.assets
+:mathematical-format: svg
+:toc: left
+
+<<<
+
+== Project Management Triangle
+
+TBD
+
+== Recall
+
+TBD
+
+== Work Breakdown Structure (WBS)
+
+TBD

@@ -55,7 +55,7 @@ sequence
 ** Eventually you decompose the activity level into tasks, so you can make a
 network diagram at any level of the decomposition
 
-Advantages: _Missing_
+// Advantages: _Missing_
 
 For example, the following activity set of a WBS makes the network diagram
 structure obvious:
@@ -65,7 +65,7 @@ structure obvious:
 @startuml
 digraph example {
     rankdir=LR;
-    
+
     Concept -> Design -> Engineering -> Construction -> Testing -> Deployment;
 }
 @enduml
@@ -113,8 +113,8 @@ after it is completed
 * *Sink:* a set of multiple activities that, when completed, spawn off
 another activity
 
-* *Float/Slack:* the difference between the latest start date and earliest
-start dates is called the float or slack
+* *Float ("slack"):* the difference between the latest start date and earliest
+start dates is called the float or "slack"
 ** Number of days by which you can delay a non-critical task without impacting
 the earliest completion time of a project
 ** Gives you tunable parameters as a manager
@@ -234,7 +234,7 @@ Observations:
 
 * Critical Path: indicates activities where ES/EF=LS/LF
 ** Nodes not in the critical path have slack
-** This variant is a more formal method to determine critical path for 
+** This variant is a more formal method to determine critical path for
 complex networks
 
 * Walk a forward path to get earliest times
@@ -243,11 +243,12 @@ complex networks
 == Charting Tools
 
 * draw.io
+
 * Microsoft Visio
 
 == References
 
-* Armin van Roeseler; CS 413, Fall 2019 NEIU 
+* Armin van Roeseler; CS 413, Fall 2019 NEIU
 
 * https://www.quora.com/What-is-the-difference-between-event-and-activity
 
