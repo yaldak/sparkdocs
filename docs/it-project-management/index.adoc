@@ -50,10 +50,9 @@ lead IT projects
 
 . link:01-intro-and-pmlc{relative-ext}[Intro and PMLC]
 . link:02-concept-phase{relative-ext}[Concept Phase]
-. Developing the Project Plan
-. Project Charter
+. link:03-integrated-project-plan{relative-ext}[Integrated Project Plan]
 . Work Breakdown Structures (WBS)
-. Network Charts
+. link:05-network-diagrams{relative-ext}[Network Diagrams]
 . GANTT Charts
 . Cost Estimates
 . Status Reporting & Communication

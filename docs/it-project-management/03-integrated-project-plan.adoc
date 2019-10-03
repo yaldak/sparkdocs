@@ -1,0 +1,209 @@
+= Integrated Project Plan
+Yalda Kako <yalda@kako.cc>
+:drawio-extension: .rendered.svg
+:imagesdir: ./03-integrated-project-plan.assets
+:imagesoutdir: ./03-integrated-project-plan.assets
+:toc: left
+
+== Introduction
+
+* The business case is an attempt to collect as much information as possible to
+the degree of accuracy that is possible at that stage of that project
+** So that stakeholders can make an educated decision on if they will *move
+forward*
+** Used to determine if the stakeholders are serious about funding the project
+or if it is just a "good idea" that will stay on the backburner
+
+* Many ideas are rooted just by discussions "in the hall way", hence the
+importance of the 30,000 foot view and the business case
+
+* Many projects do not survive the business case phase
+
+* ROI comparisons can be used to distinguish which project is higher priority
+among others
+
+* As you proceed through the PMLC, the information you present about work effort
+and cost estimates becomes more detailed (especially in the WBS)
+
+* Much of project management is **mechanical and straightforward**
+** Many projects run by themselves
+** The skills of the PM shine when things don't go to plan
+
+* Typically a sign of immature business process and management if you go past
+the business case and eventually kill the project (but it still happens)
+
+== Integrated Project Plan
+
+The *Integrated Project Plan (IPP)* consists of:
+
+. Project Charter
+** Risk Identification
+** Assumptions
+** Constraints (any that you can foresee)
+** Primary project driver
+** List of stakeholders
+
+. Work Breakdown Structure (WBS)
+** Risk planning and mitigation
+
+. Logic Diagram
+** Network diagram
+** Event and precedence diagram
+
+. GANNT Chart
+** Scheduling tool: lays out sequential events, identifies dependencies, helps
+reveal parallelism
+
+. Cost Spreadsheet
+** Picks up where ROI analysis left off; more detailed cost estimates
+
+== Sign-off
+
+The IPP culminates with a *sign-off:* formal agreements by the stakeholders and
+sponsors to commit to the resources required to make the project happen.
+
+It may be reviewed by non-stakeholders (e.g. other, tangential departments)
+
+The sign-off covers:
+
+* Project charter
+* WBS
+* Network diagram
+* Precedence diagram
+* Project schedule / GANTT chart
+* Change management and communications plan
+* Budget
+* Risks and contingency plans
+
+== Risk Analysis Grid
+
+The following grid is useful for visualizing risks.
+
+image::risk-analysis-grid{drawio-extension}[Grid]
+
+* Quadrant I: Stay away -- no-win, or do in phases (move far out)
+
+* Quadrant II: Pick your battles carefully
+** If many items here, this is a "monster" -- do not overload the project
+** Ensure great support, contingency/mitigation plans for these items
+
+* Quadrant III: Do them all -- "mana from heaven"
+
+* Quadrant IV: If you have time to kill, extra resources, or need a
+reassurance/motivational boost for the team
+
+== Project Charter Template
+
+The typical project charter contains the following items. Based on the size
+and scope of the project, some items can be collapsed or amplified.
+
+* Vision statement (big picture/statement of intent)
+** _Further research recommended_
+
+* Project mission statement
+** How do you instantiate the vision into actuality?
+** Links to, but not necessarily restates, corporate vision and mission
+** Can iterate from version in business case review phase
+** Can make a reference to the anticipated scope (e.g. "worldwide")
+** Can express intent (e.g. ambitious in nature, "best in class")
+
+* Project goal statement
+
+* Statement of scope
+** Can include visualization
+
+* Project objectives
+
+* Critical success factors and measures
+** Quantify factors with measures
+** Factors are based off of the objectives (cascading, mutually supporting
+relationships within the document)
+
+* List of relevant risks
+
+* List of assumptions
+
+* Project constraints
+** Include budget ceiling, for example
+
+* Primary project driver
+
+* Identification of all:
+** Stakeholders
+** Sponsors
+** Clients/end users
+** Other interested parties (e.g. 3rd-party vendors or PM office)
+
+== Example Project Plan
+
+Assume we want to create a project for an e-commerce websites that permits
+international retail transactions.
+
+*Project mission statement:*
+
+To create and expand a worldwide Internet buying platform with name recognition,
+ease of access and use, and a tech-savvy feel.
+
+*Project goal statement:*
+
+* A quirky, attention-grabbing website that helps navigate the selection and
+purchasing steps
+
+* An easy, secure purchasing mechanism that uses any currency and payment method
+
+* Create "stickiness": e.g. a factor for the customer to return
+
+*Scope:*
+
+* Marketing (print & electronic safe), web & computer technology, required
+financial functions, and client authentication functions
+
+* Example diagram:
+
+image::example-project-visualization{drawio-extension}[Example]
+
+*Project objectives:*
+
+* Online purchasing is not time consuming
+
+* Online purchasing has flexible payment methods
+
+* Online purchasing must be usable by non-tech savvy users
+
+* Users must know that their transactions are safe
+
+* Language cannot be a barrier
+
+*Critical success measures:*
+
+* Payment transactions will complete in 10 seconds or less
+
+* Customers may change their mind on the payment method mid-transaction
+
+*Project risks:*
+
+* Tech infrastructure may not be supported in some nations
+
+* Not understanding expectations and financial patterns/buying behaviors of
+overseas clients
+
+* Possible local government intervention
+
+*Project assumptions:*
+
+* Project funding is established and available
+
+* Hardware and software required for the project exists and is available
+
+* We will accommodate cultural practices or preferences in some world regions
+
+*Project constraints:*
+
+* Budget ceiling has been established for this project: $2,000,000
+
+* Any acquired software can be supported by in-house staff
+** This is not necessarily easy
+
+* Existing phone staff can accommodate internet orders
+
+* Time to market must not exceed 1 year

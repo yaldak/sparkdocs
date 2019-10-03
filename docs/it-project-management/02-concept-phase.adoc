@@ -16,7 +16,7 @@ Yalda Kako <yalda@kako.cc>
 
 * Answers "What?" and "How?"
 
-* Powerful document, but--surprisingly--not always created
+* Powerful document, but -- surprisingly -- not always created
 
 * The PM may not be able to complete this document alone
 ** For example, support of financial or business analysts may be needed
@@ -46,8 +46,9 @@ The business case should specify:
 * A *cost-benefit analysis*
 
 * A determination of *return on investment* (ROI)
+** Discover the break-even period
 ** For the strongest argument, provide a determination of ROI against the
-net-present value (NPV)
+*net-present value (NPV)*
 
 <<<
 
@@ -170,7 +171,7 @@ Grand Total              $____   | Grand Total               $____
 
 * Useful to discover where the heavy hitting items are
 
-* May be firm in the eye of the beholder (depending on clientele) - not up to PM
+* May be firm in the eye of the beholder, depending on clientele -- not up to PM
 
 ==== Wants
 
