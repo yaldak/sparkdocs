@@ -40,7 +40,7 @@ echo
 
 ## Line length check
 echo "Checking for lines longer than 80 characters..."
-grep --color='auto' --include='*.adoc' -r -n '.\{80\}' ./docs
+grep --color='auto' --include='*.adoc' -r -n '.\{81\}' ./docs
 
 if [ $? -eq 1 ]; then
     echo "No lines longer than 80 characters found."

@@ -24,8 +24,8 @@ importance of the 30,000 foot view and the business case
 * ROI comparisons can be used to distinguish which project is higher priority
 among others
 
-* As you proceed through the PMLC, the information you present about work effortLolInternetLONGER THAN 80
-and cost estimates becomes more detailed (especially in the WBS)Fixme btw   
+* As you proceed through the PMLC, the information you present about work effort
+and cost estimates becomes more detailed (especially in the WBS)
 
 * Much of project management is **mechanical and straightforward**
 ** Many projects run by themselves
