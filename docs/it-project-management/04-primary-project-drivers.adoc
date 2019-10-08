@@ -10,9 +10,9 @@ Yalda Kako <yalda@kako.cc>
 
 == Project Management Triangle
 
-* 3 components: Time, Cost, Quality/Scope
+image::project-management-triangle{drawio-extension}[Grid]
 
-IMAGE HERE
+* 3 components that influence quality: time, cost, scope
 
 * When making heavy project decisions, you can pick two of these components to
 define, but the third will be a "function of the other two components"
@@ -79,9 +79,7 @@ and include additional subtasks ("micromanage")
 * The WBS should decompose the time frames into ever smaller chunks that can be
 monitored into smaller tasks
 
-TBD
-
-PIC HERE
+image::wbs-levels{drawio-extension}[Grid]
 
 * Can be set up by several mechanisms/organizing principles
 ** There is no right or wrong one, each has its own pros/cons based on the goal
