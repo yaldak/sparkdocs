@@ -10,12 +10,108 @@ Yalda Kako <yalda@kako.cc>
 
 == Project Management Triangle
 
-TBD
+* 3 components: Time, Cost, Quality/Scope
+
+IMAGE HERE
+
+* When making heavy project decisions, you can pick two of these components to
+define, but the third will be a "function of the other two components"
+
+* For example, if given a schedule and scope, the cost will be the result of
+those parameters
+
+* If all three are defined, this is an **overdetermined system** (not feasible)
+
+* Example primary driver: Cost
+** Many projects are engineered to budget, especially in startup companies
+(e.g. "here are 2 million dollars, what can we deliver?")
+
+* Example primary driver: Scope
+** Some project need scope and timeline defined, especially in startup companies
+(e.g. "project cannot proceed without a prototype")
+** Stakeholder identification influences scope
 
 == Recall
 
-TBD
+* The business plan is the first attempt to get the size and the scope of the
+project identified and agreement/disagreement from the major stakeholders
+
+* The project charter has a lot more detail about what the deliverables are
+
+* Project management consists of:
+** What are we doing?
+** How are we doing it?
+
+* Is it worth redoing the business plan?
+** If the project is approved in the first place, you are be "home free" and
+would not want to go back to update the business plan
+*** Except if an event occurs where one of the major assumptions that supported
+the business case in the first place is no longer valid (for example, market no
+longer exists)
+
+* Scope creep
+** Tackle by iterating (incremental approach)
+
+* PMLC
+** ... -> Project charter -> WBS -> Network diagram -> GANTT chart -> ...
+** This middle bound is where the "rubber meets the road"
 
 == Work Breakdown Structure (WBS)
 
+* A generic WBS is a hierarchical decomposition of a project into work
+assignments, activities, and tasks
+
+* Each block below is a decomposition (breakdown) of the element above it
+
+* How deep can you go, and when will you be done?
+** Up to the project manager
+** Ensure that the units at each of block level are roughly of equal complexity,
+duration, and size ("equal efforts")
+** Really depends on the amount of control that you want to have on the project
+** The finer the WBS, the more can be monitored (higher degree of scrutiny that
+the PM can impose on the project)
+
+* If, as a PM, you have worked with the team before and it is assumed they know
+the steps well, you may not want to break down too deep
+** But if there has been issues in the past, you may want to have more control
+and include additional subtasks ("micromanage")
+
+* The WBS should decompose the time frames into ever smaller chunks that can be
+monitored into smaller tasks
+
 TBD
+
+PIC HERE
+
+* Can be set up by several mechanisms/organizing principles
+** There is no right or wrong one, each has its own pros/cons based on the goal
+** There can be some ability to mix/match into a hybrid
+
+* WBS types
+** WBS by Work Cycle
+*** Driven by phases
+*** You may not be able to necessarily adhere to the effort estimates in this form
+** WBS by Subject Matter
+*** Driven by expertise (SMEs)
+** WBS by Deliverables
+*** Driven by output components
+
+Meta
+Control diagram (the "1" is for +/- 1 day)
+
+
+
+- Objectives are best if they are SMART
+S - Specific
+M - Measureable
+A - Agreed upon
+R - Realistic
+T - Timebound
+
+Objectives are a superset of the goals
+
+Ext: PMI PMBOK
+
+PM Should not do heavy lifting. Recipe for disaster.
+
+Project feedback: beware of too many features (project management triangle.)

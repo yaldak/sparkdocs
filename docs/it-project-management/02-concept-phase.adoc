@@ -63,10 +63,10 @@ For the strongest argument, provide a determination of ROI against the
 ** This overview section is the *core and essence* of the document
 
 . Proposed Project Details
-** Describe the problem to be addressed
+** Describe the issue or problem to be addressed
 ** Goals and benefits
-** Needs and wants of stakeholders
-*** Template in this document
+** Needs and wants of sponsor and stakeholders
+*** _Template in this document_
 ** Potential project scope
 *** Also include issues/features/functions you do NOT plan to address
 ** Cost-benefit analysis
@@ -187,14 +187,19 @@ Problem: I need a place to live.
 Needs (must haves):
 
 * 3 BR house
+
 * 2,500 square feet
+
 * 2 car garage
+
 * 1-acre lot
+
 * Large family room
 
 Wants (negotiable piece):
 
 * Room for a home office
+
 * Basement
 
 Nice to haves:
@@ -221,6 +226,8 @@ contexts
 
 * On the back of an envelope, sufficient to determine if the project should
 move forward
+** CFO might be nervous is ROI is not within 2-3 years
+(sometimes 5 years, if large project)
 
 * How can a financial picture be painted to convince oneself that a project is
 worth undertaking or not worth it based on ROI?
@@ -305,6 +312,9 @@ sooner it is received
 ** The entire implementation period + the *break-even period*
 ** If there is no break-even period, there will never be a positive ROI
 
+* *30,000 foot view:* describes a high enough level to see the "big picture"
+** Common business lingo
+
 <<<
 
 == ROI Analysis Example
@@ -344,9 +354,22 @@ Therefore, the total ROI period is latexmath:[24 + 25 = 49] months
 What might be happening (month 0 -> n):
 
 * Staffing up
+
 * Buying equipment
+
 * Buying project space
+
 * Peak staffing (the constant line)
+
 * Let developers go
+
 * Let QA staff go
+
 * Eventually (2 years later), let PMs go
+
+== Future Research
+
+* Benefit-Cost Ratio (BCR)
+
+* Context diagrams
+** "How does your system interact with other systems?"

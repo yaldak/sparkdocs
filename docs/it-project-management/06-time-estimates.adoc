@@ -1,0 +1,48 @@
+= Time Estimates
+Yalda Kako <yalda@kako.cc>
+:drawio-extension: .rendered.svg
+:imagesdir: ./06-time-estimates.assets
+:imagesoutdir: ./06-time-estimates.assets
+:mathematical-format: svg
+:toc: left
+
+<<<
+
+Wouldn't it be wonderful if we could introduce a probabilistic approach that helps us determine the confidence we have that a particular task or project would be completed within a given period of time?
+
+Let T_e = expected time for the completion of a task
+Let T_o  = optimistic time for the completion of a task
+Let T_p = pessimistic time for the completion of a task
+Let T_m = most likely time for the completion
+
+T_e = [ T_o + (4*T_m) + T_p ] / 6
+* What is actually happening here?
+* You can use this to determine the confidence interval for your estimate
+* Roots in statistic classes, sampling theories – once you generate at least 6 data points of measurement, then you can assume that the sample size is following a "..."[19:17]
+* You can determine the standard deviation / variance of these times
+
+Standard deviation: 
+
+Sigma(T_e) = [ T_p – T_o ] / 6
+
+[[picture]]
+PDF = Probability Distribution Function
+[[bell curve in picture]]
+
+Let's assume the project we are working on is a server installation.
+
+Server installation
+Assume basically 3 activities:
+* Procurement of server
+* OS installation
+* Software installation
+* [WBS rooted at Server installation. These are the first 3 items at the first level.]
+
+The tasks in these activities are pretty much in the control of the organization. People can usually give time estimates. For example: OS installation 2 days, SW installation 3 days. But what about procurement? It could be a big problem. Because the activities beneath it may not be under the control of the ordering organizations.
+
+Possible subtasks for procurement:
+* Prepare PO (1 days)
+** Delivery dependent on inventory, shipping, logistics
+** People may say from experience:
+*** Delivery (2 days if available, 2 weeks if not, maybe even 4 weeks)
+*** High degree of uncertainty

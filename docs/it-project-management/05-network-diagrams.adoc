@@ -66,7 +66,7 @@ structure obvious:
 digraph example {
     rankdir=LR;
 
-    Concept -> Design -> Engineering -> Construction -> Testing -> Deployment;
+    Concept -> Design -> Engineering -> Construction -> Testing -> Deployment -> Maintenance;
 }
 @enduml
 ----
@@ -92,13 +92,13 @@ of a project
 ** A network diagram starts with an initial event and ends at a terminal event
 ** __Future research:__ Fulkerson's Rule
 ** In a network diagram:
-*** Activities lead to/from events __Check with professor__
+*** Activities lead to/from events
 *** Each event is represented as a node
 
 * *Task:* a subcomponent of an activity
 ** For the purpose of network diagrams, a task is treated as an activity
 
-__factcheck__
+__fixme: factcheck__
 
 <<<
 
@@ -134,7 +134,7 @@ times and the costs for the tasks also get aggregated upstream.
 If you aggregate the times upstream, it will be difficult to compute the total
 duration of the project, but you can compute effort (parallelism and man-hours).
 
-__Some stuff might be missing here. Yalda to fix__
+__fixme: Some stuff might be missing here. Yalda to fix__
 
 === Calculation Example
 [source]
@@ -178,7 +178,7 @@ Excerpt, explained:
 
 * A and B can only happen in sequence
 
-* C and D can only happen in parallel upon completion of B
+* C, D, and E can only happen in parallel upon completion of B
 
 * 50 can only happen when C, D, and E are done
 
@@ -186,31 +186,42 @@ Excerpt, explained:
 
 === Critical Path
 
-In this example:
+The sub path with the longest total duration is the critical path.
 
-* Subpath: A, B, C, F: 13 (total duration)
+In this example (sum is of durations):
 
-* Subpath: A, B, D, F: 12
+* Subpath: A + B + C + F = 13
 
-* Subpath: A, B, E, G, H: 16 (**critical path**)
+* Subpath: A + B + D + F = 12
+
+* Subpath: A + B + E + G + H = 16 (**critical path**)
 ** Implies C and D - all tasks must be completed
+** Recall, the critical path is also the earliest completion time
 
-* Subpath: A, B, C, G, H: __missing__
-
-* Sum of durations in the critical path is 16
-** Earliest completion time is therefore 16 days
+* Subpath: A + B + C + G + H = 14
 
 === Float/Slack
 
-* When B is complete, we have used 4 days
-** Complete B: Day 4. (we are at)
-** Complete E: Day 9
-** Start C: Day 4 / Complete C: Day 9 (Can start as late as 9-3=6)
-** Start D: Day 4 / Complete D: Day 9 (can start as late as 9-2=7)
+* When B is complete, we are at day 4
+
+* When E is complete, we are at day 9
+
+* Observe that C can start at day 4 or as late as day 6
+** This is because E is the "long pole in the tent" within the group of
+concurrent tasks C, D, E
+** E is slated to finish at day 9. If we subtract this value and the duration
+of C, (9 - 3) = 6
+
+* Observe that D can start at day 4, or as late as day 7
+** This is, again, because E is the "long pole".
+** 9 - 2 = 7
 
 <<<
 
 == Variant 2
+
+This variant is a more formal method to determine critical path for
+complex networks.
 
 === Legend
 
@@ -220,25 +231,22 @@ image:pert-variant-2-legend{drawio-extension}[Legend]
 
 image:pert-variant-2-example{drawio-extension}[Example]
 
+
+* LF of H = 16, representing the EF ??
+* LS of H = LF - DU
+
 <<<
 
-=== Notes
+=== Usage
+
+* Trace a forward path through the network to determine the ES and EF
 
 * Trace a reverse path through the network to determine the LS and LF
 ** Start looking at the EF of the node with longest duration in the network
 
-Observations:
-
-// * LF of last box = EF ? or 16 - EF? */
-* LS of H = LF - DU
-
-* Critical Path: indicates activities where ES/EF=LS/LF
+* The critical path in this type of graph is represented by the activities
+where ES = LS, and EF = LF
 ** Nodes not in the critical path have slack
-** This variant is a more formal method to determine critical path for
-complex networks
-
-* Walk a forward path to get earliest times
-* Walk a backward path for latest times
 
 == Charting Tools
 
@@ -252,4 +260,4 @@ complex networks
 
 * https://www.quora.com/What-is-the-difference-between-event-and-activity
 
-* Textbook pages 230 and above __missing__
+* Textbook ~ pp. 230

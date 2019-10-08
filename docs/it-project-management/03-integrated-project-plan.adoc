@@ -107,8 +107,8 @@ reassurance/motivational boost for the team
 
 == Project Charter Template
 
-The typical project charter contains the following items. Based on the size
-and scope of the project, some items can be collapsed or amplified.
+The typical project charter typically contains the following items. Based on the
+size and scope of the project, some items can be collapsed or amplified.
 
 * Vision statement (big picture/statement of intent)
 ** _Further research recommended_
